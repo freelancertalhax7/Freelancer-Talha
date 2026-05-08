@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@400;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Outfit", sans-serif;
+  
+  --color-cyber-black: #050505;
+  --color-cyber-green: #00FF41;
+  --color-cyber-blue: #00F0FF;
+  --color-cyber-accent: #F27D26;
+  
+  --animate-terminal-cursor: terminal-cursor 1s infinite;
+  --animate-glitch: glitch 1s linear infinite;
+}
+
+@keyframes terminal-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes glitch {
+  2% { transform: translate(2px, 0) skew(0deg); }
+  4% { transform: translate(-2px, 0) skew(0deg); }
+  6% { transform: translate(0, 0) skew(5deg); }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cyber-black text-white selection:bg-cyber-green selection:text-black font-sans;
+  }
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
+
+.terminal-text {
+  @apply font-mono text-cyber-green;
+}
+
+.hacker-gradient {
+  background: linear-gradient(135deg, var(--color-cyber-green) 0%, var(--color-cyber-blue) 100%);
+}
+
+.display-title {
+  @apply font-display tracking-tight text-white;
+}
